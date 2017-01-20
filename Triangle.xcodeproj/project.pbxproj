@@ -10,6 +10,7 @@
 		F7EC22861E325BFE0073A819 /* Triangle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7EC227C1E325BFE0073A819 /* Triangle.framework */; };
 		F7EC228B1E325BFE0073A819 /* TriangleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EC228A1E325BFE0073A819 /* TriangleTests.swift */; };
 		F7EC228D1E325BFE0073A819 /* Triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = F7EC227F1E325BFE0073A819 /* Triangle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F7EC22971E325C220073A819 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EC22961E325C220073A819 /* Triangle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		F7EC22851E325BFE0073A819 /* TriangleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TriangleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EC228A1E325BFE0073A819 /* TriangleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleTests.swift; sourceTree = "<group>"; };
 		F7EC228C1E325BFE0073A819 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7EC22961E325C220073A819 /* Triangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				F7EC227F1E325BFE0073A819 /* Triangle.h */,
+				F7EC22961E325C220073A819 /* Triangle.swift */,
 				F7EC22801E325BFE0073A819 /* Info.plist */,
 			);
 			path = Triangle;
@@ -149,6 +152,7 @@
 					F7EC227B1E325BFE0073A819 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6EFGV8H972;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					F7EC22841E325BFE0073A819 = {
@@ -198,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7EC22971E325C220073A819 /* Triangle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +327,7 @@
 		F7EC22911E325BFE0073A819 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EFGV8H972;
@@ -334,6 +340,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.greybeard.Triangle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +348,7 @@
 		F7EC22921E325BFE0073A819 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 6EFGV8H972;
@@ -360,6 +368,7 @@
 		F7EC22941E325BFE0073A819 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6EFGV8H972;
 				INFOPLIST_FILE = TriangleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +381,7 @@
 		F7EC22951E325BFE0073A819 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 6EFGV8H972;
 				INFOPLIST_FILE = TriangleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
