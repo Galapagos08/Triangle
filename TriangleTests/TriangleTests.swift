@@ -10,27 +10,55 @@ import XCTest
 @testable import Triangle
 
 class TriangleTests: XCTestCase {
+    let errorMessage = "this triangle cannot exist"
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testTriangleInitialization() {
+        let potentialTriangle = Triangle(3, 3, 3)
+        XCTAssertNotNil(potentialTriangle)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testEquilateral() {
+        let triangle = Triangle(3, 3, 3)
+        XCTAssertEqual(triangle.isTriangle(triangle), "Equilateral")
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testNotEquilateral() {
+        let triangle = Triangle(3, 3, 5)
+        XCTAssertNotEqual(triangle.isTriangle(triangle), "Equilateral")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testIsosceles() {
+        let triangle = Triangle(3, 3, 4)
+        XCTAssertEqual(triangle.isTriangle(triangle), "Isosceles")
     }
     
+    func testScalene() {
+        let triangle = Triangle(3, 4, 5)
+        XCTAssertEqual(triangle.isTriangle(triangle), "Scalene")
+    }
+    
+    func testInvalidTriangle() {
+        let invalidTriangle = Triangle(2, 3, 7)
+        XCTAssertEqual(invalidTriangle.isTriangle(invalidTriangle), errorMessage)
+    }
+
+    func testAnotherInvalidTriangle() {
+        let anotherInvalidTriangle = Triangle(3, 3, 7)
+        XCTAssertEqual(anotherInvalidTriangle.isTriangle(anotherInvalidTriangle), errorMessage)
+    }
+    
+    func testZeroLength() {
+        let zeroTriangle = Triangle(0, 0, 0)
+        XCTAssertEqual(zeroTriangle.isTriangle(zeroTriangle), errorMessage)
+    }
+    
+    func testTwoZeroes() {
+        let twoZeroTriangle = Triangle(0, 0, 4)
+        XCTAssertEqual(twoZeroTriangle.isTriangle(twoZeroTriangle), errorMessage)
+    }
+    
+    func testOneZero() {
+        let oneZeroTriangle = Triangle(0, 4, 3)
+        XCTAssertEqual(oneZeroTriangle.isTriangle(oneZeroTriangle), errorMessage)
+    }
 }
