@@ -15,7 +15,7 @@ class Triangle {
     
     init(_ sideA: UInt, _ sideB: UInt, _ sideC: UInt) {
         self.sideA = sideA
-        self.sideB = sideB
+        self.sideB = sideB 
         self.sideC = sideC
     }
     

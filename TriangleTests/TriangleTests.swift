@@ -14,7 +14,7 @@ class TriangleTests: XCTestCase {
     
     func testTriangleInitialization() {
         let potentialTriangle = Triangle(3, 3, 3)
-        XCTAssertNotNil(potentialTriangle)
+        XCTAssertNotNil(potentialTriangle) 
     }
     
     func testEquilateral() {
