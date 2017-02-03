@@ -59,7 +59,9 @@ class Triangle {
     }
     
     private func validTriangle(_ triangle: Triangle) -> Bool {
-        return sideC <= sideA + sideB &&
+        return sideC < sideA + sideB &&
+            sideA < sideB + sideC &&
+            sideB < sideA + sideC &&
             sideA != 0 &&
             sideB != 0 &&
             sideC != 0
