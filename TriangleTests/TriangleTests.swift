@@ -38,8 +38,8 @@ class TriangleTests: XCTestCase {
     
     func testIsosceles() {
         let isoscelesCase1 = Triangle(3, 3, 4)
-        let isoscelesCase2 = Triangle(4, 4, 6)
-        let isoscelesCase3 = Triangle(4, 4, 7)
+        let isoscelesCase2 = Triangle(3, 4, 3)
+        let isoscelesCase3 = Triangle(4, 3, 3)
         let isoscelesCase4 = Triangle(5, 5, 6)
         let isoscelesCase5 = Triangle(7, 4, 4)
         let isoscelesCase6 = Triangle(7, 4, 7)
@@ -59,18 +59,27 @@ class TriangleTests: XCTestCase {
         XCTAssertEqual(scaleneCase1.isTriangle(scaleneCase1), scalene)
         XCTAssertEqual(scaleneCase2.isTriangle(scaleneCase2), scalene)
         XCTAssertEqual(scaleneCase3.isTriangle(scaleneCase3), scalene)
-        XCTAssertEqual(scaleneCase3.isTriangle(scaleneCase4), scalene)
+        XCTAssertEqual(scaleneCase4.isTriangle(scaleneCase4), scalene)
     }
     
     func testOneSideGreaterThanSumOfRemainingSides() {
-        let invalidCase1 = Triangle(100, 3, 4)
-        let invalidCase2 = Triangle(2, 100, 4)
-        let invalidCase3 = Triangle(2, 3, 7)
-        let invalidCase4 = Triangle(3, 3, 7)
-        XCTAssertEqual(invalidCase1.isTriangle(invalidCase1), errorMessage)
-        XCTAssertEqual(invalidCase2.isTriangle(invalidCase2), errorMessage)
-        XCTAssertEqual(invalidCase3.isTriangle(invalidCase3), errorMessage)
-        XCTAssertEqual(invalidCase3.isTriangle(invalidCase4), errorMessage)
+        let sideAGreater = Triangle(100, 3, 4)
+        let sideBGreater = Triangle(2, 100, 4)
+        let sideCGreater = Triangle(2, 3, 7)
+        let sideCGreaterAndRemainingSidesEqual = Triangle(3, 3, 7)
+        XCTAssertEqual(sideAGreater.isTriangle(sideAGreater), errorMessage)
+        XCTAssertEqual(sideBGreater.isTriangle(sideBGreater), errorMessage)
+        XCTAssertEqual(sideCGreater.isTriangle(sideCGreater), errorMessage)
+        XCTAssertEqual(sideCGreaterAndRemainingSidesEqual.isTriangle(sideCGreaterAndRemainingSidesEqual), errorMessage)
+    }
+    
+    func testOneSideEqualsSumOfRemainingSides() {
+        let sideCEqualsSumOfRemainingSides = Triangle(3, 3, 6)
+        let sideBEqualsSumOfRemainingSides = Triangle(3, 6, 3)
+        let sideAEqualsSumOfRemainingSides = Triangle(6, 3, 3)
+        XCTAssertEqual(sideCEqualsSumOfRemainingSides.isTriangle(sideCEqualsSumOfRemainingSides), errorMessage)
+        XCTAssertEqual(sideBEqualsSumOfRemainingSides.isTriangle(sideBEqualsSumOfRemainingSides), errorMessage)
+        XCTAssertEqual(sideAEqualsSumOfRemainingSides.isTriangle(sideAEqualsSumOfRemainingSides), errorMessage)
     }
     
     func testAllZeroLengthSides() {
