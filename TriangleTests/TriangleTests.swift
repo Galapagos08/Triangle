@@ -41,10 +41,14 @@ class TriangleTests: XCTestCase {
         let isoscelesCase2 = Triangle(4, 4, 6)
         let isoscelesCase3 = Triangle(4, 4, 7)
         let isoscelesCase4 = Triangle(5, 5, 6)
+        let isoscelesCase5 = Triangle(7, 4, 4)
+        let isoscelesCase6 = Triangle(7, 4, 7)
         XCTAssertEqual(isoscelesCase1.isTriangle(isoscelesCase1), isosceles)
         XCTAssertEqual(isoscelesCase2.isTriangle(isoscelesCase2), isosceles)
         XCTAssertEqual(isoscelesCase3.isTriangle(isoscelesCase3), isosceles)
         XCTAssertEqual(isoscelesCase4.isTriangle(isoscelesCase4), isosceles)
+        XCTAssertEqual(isoscelesCase5.isTriangle(isoscelesCase5), isosceles)
+        XCTAssertEqual(isoscelesCase6.isTriangle(isoscelesCase6), isosceles)
     }
     
     func testScalene() {

@@ -38,9 +38,14 @@ class Triangle {
     }
     
     private func isIsosceles(_ triangle: Triangle) -> Bool {
-        return sideAEqualsSideB(triangle) &&
-            !sideAEqualsSideC(triangle) &&
-            validTriangle(triangle)
+        if validTriangle(triangle) && sideAEqualsSideB(triangle) && !sideAEqualsSideC(triangle) {
+            return true
+        } else if validTriangle(triangle) && sideAEqualsSideC(triangle) && !sideAEqualsSideB(triangle) {
+            return true
+        } else if validTriangle(triangle) && sideBEqualsSideC(triangle) && !sideAEqualsSideB(triangle) {
+            return true
+        }
+        return false
     }
     
     private func isScalene(_ triangle: Triangle) -> Bool {
@@ -56,6 +61,10 @@ class Triangle {
     
     private func sideAEqualsSideC(_ triangle: Triangle) -> Bool {
         return triangle.sideA == triangle.sideC
+    }
+    
+    private func sideBEqualsSideC(_ triangle: Triangle) -> Bool {
+        return triangle.sideB == triangle.sideC
     }
     
     private func validTriangle(_ triangle: Triangle) -> Bool {
